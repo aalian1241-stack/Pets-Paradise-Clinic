@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet's Paradise Clinic | Rawalpindi</title>
+    <style>
+        :root {
+            --primary-yellow: #fcdb05; /* Matches your logo */
+            --dark-bg: #121b22;       /* WhatsApp/Dark mode feel */
+            --accent-blue: #3498db;
+            --text-light: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--dark-bg); color: var(--text-light); line-height: 1.6; }
+
+        /* Navigation */
+        nav { background: rgba(0,0,0,0.8); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--primary-yellow); }
+        .logo { font-size: 1.2rem; font-weight: bold; color: var(--primary-yellow); text-transform: uppercase; }
+        
+        /* Hero Section */
+        .hero { 
+            padding: 80px 5%; 
+            text-align: center; 
+            background: linear-gradient(rgba(18, 27, 34, 0.8), rgba(18, 27, 34, 0.8)), url('https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+        }
+        .hero h1 { font-size: 2.5rem; color: var(--primary-yellow); margin-bottom: 10px; }
+        .contact-bar { margin: 20px 0; font-size: 1.1rem; }
+
+        /* Quick Info Grid */
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 20px 5%; }
+        .info-box { background: #1f2c34; padding: 20px; border-radius: 10px; text-align: center; border-left: 4px solid var(--primary-yellow); }
+        .info-box h4 { color: var(--primary-yellow); margin-bottom: 5px; }
+
+        /* Services */
+        .services { padding: 40px 5%; }
+        .service-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .service-card { background: #1f2c34; padding: 20px; border-radius: 8px; transition: 0.3s; }
+        .service-card:hover { transform: translateY(-5px); background: #2a3942; }
+
+        /* Footer / Contact */
+        .footer { background: #0b141a; padding: 40px 5%; text-align: center; border-top: 1px solid #333; }
+        .btn { background: var(--primary-yellow); color: #000; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">🐾 Pet's Paradise Clinic</div>
+        <div class="status" style="color: #25d366;">● Open Now</div>
+    </nav>
+
+    <header class="hero">
+        <h1>Pet's Paradise Clinic</h1>
+        <p>"Where pets are family"</p>
+        <div class="contact-bar">
+            <strong>📞 +92 343 5511262</strong>
+        </div>
+        <a href="tel:+923435511262" class="btn">Call Now</a>
+    </header>
+
+    <div class="info-grid">
+        <div class="info-box">
+            <h4>Timing</h4>
+            <p>12:00 PM – 9:00 PM</p>
+        </div>
+        <div class="info-box">
+            <h4>Location</h4>
+            <p>308 Alam Khan Rd, Rawalpindi</p>
+        </div>
+        <div class="info-box">
+            <h4>Emergency</h4>
+            <p>Available for Urgent Care</p>
+        </div>
+    </div>
+
+    <section class="services">
+        <h2 style="margin-bottom: 20px; text-align: center;">Our Expertise</h2>
+        <div class="service-list">
+            <div class="service-card">
+                <h3>Surgery & Wound Care</h3>
+                <p>Professional surgical procedures and specialized stitches for your pets.</p>
+            </div>
+            <div class="service-card">
+                <h3>General Treatment</h3>
+                <p>Checkups and medication for cats, dogs, and exotic pets.</p>
+            </div>
+            <div class="service-card">
+                <h3>Consultation</h3>
+                <p>Expert advice from our qualified doctors in Chachi Mohalla.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p><strong>Address:</strong> 308 Alam Khan Rd, Chachi Mohalla, Naya Mohalla, Rawalpindi, 46000</p>
+        <br>
+        <p>&copy; 2026 Pet's Paradise Clinic</p>
+    </footer>
+
+</body>
+</html>
