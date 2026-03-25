@@ -3,140 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet's Paradise | Premium Veterinary Care</title>
+    <title>Pet's Paradise | Professional Clinic</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --gold: #D4AF37;
-            --deep-black: #0a0e11;
-            --glass: rgba(255, 255, 255, 0.05);
-            --text-gray: #a0a0a0;
+            --dark: #0a0e11;
+            --glass: rgba(255, 255, 255, 0.03);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
+
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body { 
-            background-color: var(--deep-black); 
+            background-color: var(--dark); 
             color: white; 
             font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* Fashionable Header */
+        /* --- NAVIGATION (Mobile Responsive) --- */
         nav {
-            padding: 1.5rem 8%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(10, 14, 17, 0.9);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 14, 17, 0.95);
+            backdrop-filter: blur(15px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .logo-text {
+        .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             letter-spacing: 1px;
+            color: white;
+            text-decoration: none;
         }
+        .logo span { color: var(--gold); }
 
-        .logo-text span { color: var(--gold); }
-
-        /* Hero Section with Parallax Effect */
+        /* --- HERO SECTION --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             text-align: center;
-            background: linear-gradient(to bottom, rgba(10,14,17,0.7), var(--deep-black)), 
-                        url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1920&q=80');
+            padding: 120px 20px 60px;
+            background: linear-gradient(rgba(10,14,17,0.8), var(--dark)), 
+                        url('https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            padding: 0 5%;
         }
 
-        .hero h1 {
+        .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            margin-bottom: 20px;
+            font-size: clamp(2.2rem, 10vw, 5rem);
             line-height: 1.1;
+            margin-bottom: 20px;
         }
 
-        .hero p {
-            color: var(--text-gray);
-            font-size: 1.1rem;
-            letter-spacing: 3px;
+        .hero-content p {
+            color: var(--gold);
             text-transform: uppercase;
-            margin-bottom: 40px;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 30px;
         }
 
-        /* Glassmorphism Cards */
-        .services-container {
-            padding: 100px 8%;
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 16px 35px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            border-radius: 0; /* Fashionable sharp edges */
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            color: black;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        /* --- SERVICES GRID (All Device Friendly) --- */
+        .section-padding { padding: 80px 5%; }
+        
+        .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* 1 column on mobile, 2 on tablet, 3 on desktop */
+            grid-template-columns: repeat(1, 1fr); 
             gap: 30px;
+            max-width: 1200px;
+            margin: auto;
         }
 
-        .glass-card {
+        @media (min-width: 768px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .grid-container { grid-template-columns: repeat(3, 1fr); } }
+
+        .service-card {
             background: var(--glass);
-            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 40px;
-            border-radius: 20px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
         }
 
-        .glass-card:hover {
+        .service-card:hover {
+            background: rgba(255,255,255,0.05);
             border-color: var(--gold);
-            transform: translateY(-10px);
-            background: rgba(212, 175, 55, 0.05);
+            transform: translateY(-5px);
         }
 
-        .glass-card h3 {
+        .service-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
             margin-bottom: 15px;
             color: var(--gold);
         }
 
-        /* Action Button */
-        .gold-btn {
-            padding: 15px 40px;
-            background: transparent;
-            color: var(--gold);
-            border: 1px solid var(--gold);
-            text-decoration: none;
-            border-radius: 50px;
-            transition: 0.3s;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-        }
-
-        .gold-btn:hover {
-            background: var(--gold);
-            color: black;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-        }
-
-        /* Contact Section */
-        .contact-minimal {
+        /* --- STATS SECTION --- */
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            background: #11181d;
+            padding: 60px 5%;
             text-align: center;
-            padding: 100px 5%;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .address-text {
-            color: var(--text-gray);
-            max-width: 600px;
-            margin: 20px auto;
-            font-size: 0.9rem;
+        .stat-item { flex: 1 1 200px; margin: 20px; }
+        .stat-item h2 { color: var(--gold); font-size: 2.5rem; }
+
+        /* --- CONTACT SECTION --- */
+        .contact {
+            text-align: center;
+            background: var(--dark);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .whatsapp-link {
+            color: #25d366;
+            font-size: 1.5rem;
+            text-decoration: none;
+            display: block;
+            margin: 20px 0;
+        }
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #444;
+            letter-spacing: 2px;
         }
 
     </style>
@@ -144,42 +173,62 @@
 <body>
 
     <nav>
-        <div class="logo-text">PET'S <span>PARADISE</span></div>
-        <a href="tel:+923435511262" class="gold-btn">Emergency Call</a>
+        <a href="#" class="logo">PET'S <span>PARADISE</span></a>
+        <a href="tel:+923435511262" style="color: var(--gold); text-decoration: none; font-size: 0.8rem; font-weight: 600;">CALL: +92 343 5511262</a>
     </nav>
 
     <header class="hero">
-        <p>Rawalpindi's Premier Clinic</p>
-        <h1>Excellence in <br>Veterinary Medicine.</h1>
-        <a href="#services" class="gold-btn">Explore Services</a>
+        <div class="hero-content">
+            <p>Rawalpindi's Medical Haven</p>
+            <h1>Compassion Meet <br>High Fashion.</h1>
+            <a href="#services" class="btn">VIEW OUR CARE</a>
+        </div>
     </header>
 
-    <section id="services" class="services-container">
-        <div class="glass-card">
-            <h3>Precision Surgery</h3>
-            <p>Advanced surgical care including soft tissue and orthopedic procedures with sterile precision.</p>
+    <section class="stats">
+        <div class="stat-item">
+            <h2>12 - 9</h2>
+            <p>Daily Hours</p>
         </div>
-        <div class="glass-card">
-            <h3>Wellness Suits</h3>
-            <p>Bespoke health plans designed for the specific breed and lifestyle of your pet.</p>
+        <div class="stat-item">
+            <h2>100%</h2>
+            <p>Sanitized Clinic</p>
         </div>
-        <div class="glass-card">
-            <h3>Diagnostic Imaging</h3>
-            <p>Utilizing modern technology to ensure accurate diagnosis for internal health issues.</p>
+        <div class="stat-item">
+            <h2>Expert</h2>
+            <p>Surgeons</p>
         </div>
     </section>
 
-    <section class="contact-minimal">
-        <div class="logo-text" style="font-size: 2.5rem;">Let's talk <span>health.</span></div>
-        <p class="address-text">
-            308 Alam Khan Rd, Chachi Mohalla, Rawalpindi<br>
-            Open Daily: 12:00 PM — 9:00 PM
-        </p>
-        <h2 style="color: var(--gold); margin-top: 20px;">+92 343 5511262</h2>
+    <section id="services" class="section-padding">
+        <div class="grid-container">
+            <div class="service-card">
+                <h3>Surgical Excellence</h3>
+                <p>Advanced tissue repair and surgical procedures performed in a sterile, safe environment.</p>
+            </div>
+            <div class="service-card">
+                <h3>Routine Care</h3>
+                <p>Preventative medicine and vaccinations tailored to the unique genetics of your pet.</p>
+            </div>
+            <div class="service-card">
+                <h3>Emergency</h3>
+                <p>Urgent care services on Alam Khan Road for your pet's critical moments.</p>
+            </div>
+        </div>
     </section>
 
-    <footer style="padding: 40px; text-align: center; font-size: 0.7rem; color: #444; letter-spacing: 2px;">
-        ESTABLISHED 2026 | PET'S PARADISE CLINIC
+    <section class="contact section-padding">
+        <p style="letter-spacing: 2px; color: var(--gold);">LOCATION</p>
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 15px 0;">308 Alam Khan Rd, Rawalpindi</h2>
+        <p style="color: #666;">Chachi Mohalla, Naya Mohalla, 46000</p>
+        
+        <a href="https://wa.me/923435511262" class="whatsapp-link">Chat on WhatsApp</a>
+        
+        <a href="tel:+923435511262" class="btn" style="margin-top: 20px;">BOOK APPOINTMENT</a>
+    </section>
+
+    <footer>
+        © 2026 PET'S PARADISE CLINIC | WHERE PETS ARE FAMILY
     </footer>
 
 </body>
